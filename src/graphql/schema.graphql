@@ -1,0 +1,35 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+type Configuration {
+    hasMotor: Boolean!
+    hasWeatherProofFlag: Boolean!
+    hasLights: Boolean!
+}
+input ConfigurationInput {
+    hasMotor: Boolean!
+    hasWeatherProofFlag: Boolean!
+    hasLights: Boolean!
+}
+type Request {
+    action: String!
+    value: Int
+}
+input RequestInput {
+    action: String!
+    value: Int
+}
+type Status {
+    flag: String
+    lights: String
+}
+type Query {
+    configuration: Configuration
+    requests: [Request!]!
+    status: Status
+}
+type Mutation {
+    updateConfiguration(input: ConfigurationInput!): Configuration
+    addRequest(input: RequestInput!): Int
+}

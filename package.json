@@ -1,0 +1,33 @@
+{
+  "name": "flagpole-io-api",
+  "version": "1.0.0",
+  "description": "Flagpole.io API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen": "graphql-codegen --config codegen.ts"
+  },
+  "author": "David Jacob Casey",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/schema": "^9.0.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "redis": "^4.3.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.13.7",
+    "@graphql-codegen/introspection": "2.2.1",
+    "@graphql-codegen/typescript": "2.7.5",
+    "@graphql-codegen/typescript-resolvers": "2.7.5",
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.2",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
