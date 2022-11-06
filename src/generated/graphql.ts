@@ -20,12 +20,16 @@ export type Configuration = {
   hasLights: Scalars['Boolean'];
   hasMotor: Scalars['Boolean'];
   hasWeatherProofFlag: Scalars['Boolean'];
+  pushoverApiToken?: Maybe<Scalars['String']>;
+  pushoverUserKey?: Maybe<Scalars['String']>;
 };
 
 export type ConfigurationInput = {
   hasLights: Scalars['Boolean'];
   hasMotor: Scalars['Boolean'];
   hasWeatherProofFlag: Scalars['Boolean'];
+  pushoverApiToken?: InputMaybe<Scalars['String']>;
+  pushoverUserKey?: InputMaybe<Scalars['String']>;
 };
 
 export type Mutation = {
@@ -167,6 +171,8 @@ export type ConfigurationResolvers<ContextType = GraphqlContext, ParentType exte
   hasLights?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   hasMotor?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   hasWeatherProofFlag?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  pushoverApiToken?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  pushoverUserKey?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

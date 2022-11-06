@@ -6,11 +6,15 @@ type Configuration {
     hasMotor: Boolean!
     hasWeatherProofFlag: Boolean!
     hasLights: Boolean!
+    pushoverApiToken: String
+    pushoverUserKey: String
 }
 input ConfigurationInput {
     hasMotor: Boolean!
     hasWeatherProofFlag: Boolean!
     hasLights: Boolean!
+    pushoverApiToken: String
+    pushoverUserKey: String
 }
 type Request {
     action: String!

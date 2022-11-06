@@ -12,12 +12,8 @@ const updateConfiguration: MutationResolvers['updateConfiguration'] = async (
     : {};
   const newConfiguration = { ...currentConfiguration, ...input };
 
-  const result = await redisClient.set(
-    keys.CONFIGURATION,
-    JSON.stringify(newConfiguration),
-  );
-
-  return result ? JSON.parse(result) : undefined;
+  await redisClient.set(keys.CONFIGURATION, JSON.stringify(newConfiguration));
+  return newConfiguration;
 };
 
 export default updateConfiguration;
