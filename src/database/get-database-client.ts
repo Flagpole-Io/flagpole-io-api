@@ -2,7 +2,7 @@ import { createClient } from 'redis';
 
 const client = createClient();
 
-const getClient = async () => {
+const getDatabaseClient = async () => {
   if (!client.isReady) {
     await client.connect();
   }
@@ -10,4 +10,4 @@ const getClient = async () => {
   return client;
 };
 
-export default getClient;
+export default getDatabaseClient;

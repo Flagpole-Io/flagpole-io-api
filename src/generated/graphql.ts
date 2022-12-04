@@ -35,6 +35,7 @@ export type ConfigurationInput = {
 export type Mutation = {
   __typename?: 'Mutation';
   addRequest?: Maybe<Scalars['Int']>;
+  sendNotification?: Maybe<Scalars['Boolean']>;
   updateConfiguration?: Maybe<Configuration>;
 };
 
@@ -44,8 +45,17 @@ export type MutationAddRequestArgs = {
 };
 
 
+export type MutationSendNotificationArgs = {
+  input: NotificationInput;
+};
+
+
 export type MutationUpdateConfigurationArgs = {
   input: ConfigurationInput;
+};
+
+export type NotificationInput = {
+  message: Scalars['String'];
 };
 
 export type Query = {
@@ -146,6 +156,7 @@ export type ResolversTypes = {
   ConfigurationInput: ConfigurationInput;
   Int: ResolverTypeWrapper<Scalars['Int']>;
   Mutation: ResolverTypeWrapper<{}>;
+  NotificationInput: NotificationInput;
   Query: ResolverTypeWrapper<{}>;
   Request: ResolverTypeWrapper<Request>;
   RequestInput: RequestInput;
@@ -160,6 +171,7 @@ export type ResolversParentTypes = {
   ConfigurationInput: ConfigurationInput;
   Int: Scalars['Int'];
   Mutation: {};
+  NotificationInput: NotificationInput;
   Query: {};
   Request: Request;
   RequestInput: RequestInput;
@@ -178,6 +190,7 @@ export type ConfigurationResolvers<ContextType = GraphqlContext, ParentType exte
 
 export type MutationResolvers<ContextType = GraphqlContext, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   addRequest?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType, RequireFields<MutationAddRequestArgs, 'input'>>;
+  sendNotification?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationSendNotificationArgs, 'input'>>;
   updateConfiguration?: Resolver<Maybe<ResolversTypes['Configuration']>, ParentType, ContextType, RequireFields<MutationUpdateConfigurationArgs, 'input'>>;
 };
 

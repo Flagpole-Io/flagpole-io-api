@@ -28,6 +28,9 @@ type Status {
     flag: String
     lights: String
 }
+input NotificationInput {
+    message: String!
+}
 type Query {
     configuration: Configuration
     requests: [Request!]!
@@ -36,4 +39,5 @@ type Query {
 type Mutation {
     updateConfiguration(input: ConfigurationInput!): Configuration
     addRequest(input: RequestInput!): Int
+    sendNotification(input: NotificationInput!): Boolean
 }

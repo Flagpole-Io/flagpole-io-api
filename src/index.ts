@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import { graphqlHTTP } from 'express-graphql';
 import schema from './graphql/schema';
-import getClient from './database/get-client';
+import getDatabaseClient from './database/get-database-client';
 
 dotenv.config();
 
@@ -10,14 +10,14 @@ const app: Express = express();
 const port = process.env.PORT || 3001;
 
 const setupGraphql = async () => {
-  const client = await getClient();
+  const redisClient = await getDatabaseClient();
 
   app.use(
     '/graphql',
     graphqlHTTP({
       schema,
       graphiql: true,
-      context: { redisClient: client },
+      context: { redisClient },
     }),
   );
 };
